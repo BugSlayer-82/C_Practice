@@ -6,14 +6,8 @@ void printFibonacci(int n){
     int second = 1;
     
     for(int i = 0 ; i < n; i++){
-        if(i == 0){
-            printf("%d ",first);
-        }
-        if(i == 1){
-            printf("%d ",second);
-        }
+        printf("%d ",first);
         int third = first + second;
-        printf("%d ",third);
         first = second;
         second = third;
     }
