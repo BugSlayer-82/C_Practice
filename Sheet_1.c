@@ -1,5 +1,33 @@
 #include <stdio.h>
 
+// /* Question 8 --> To search for element in array using linear search */
+int linearSearch(int x,int arr[]){
+    int lenthArr = sizeof(arr)/sizeof(arr[0]); // gain the size of array
+    for(int i = 0; i < lenthArr; i++){
+        if(arr[i] == x){ // Search for element x in array 
+            return arr[i]; // return the element
+        }
+    }
+    return -1; // element not found
+}
+
+// /* Question 7 --> To an array using Bubble Sort */
+// void bubbleSort(int n,int arr[]){
+//     for(int i = 0; i < n - 1; i++){
+//         for(int j = i; j < n - 1; j++){
+//             if(arr[j] > arr[j+1]){
+//                 int temp = arr[j];
+//                 arr[j] = arr[j + 1];
+//                 arr[j + 1] = temp;
+//             }
+//         }
+//     }   
+//     for(int i = 0; i < n; i ++){
+//         printf("%d ",arr[i]);
+//     }
+//     printf("\n");
+// }
+
 // /* Question 6 --> To print the Fibonacci Series */
 // void printFibonacci(int n){
 //     int first = 0;
@@ -156,11 +184,32 @@ int main()
     // printf("%ld : is a factorial of : %d \n", factorial(n), n);
 
     // /* Question 6 --> To print the Fibonacci Series */
-    int n; 
-    printf("Enter your number of term : "); 
-    scanf("%d",&n);
-    printFibonacci(n);    
-    printf("\n");
+    // int n; 
+    // printf("Enter your number of term : "); 
+    // scanf("%d",&n);
+    // printFibonacci(n);    
+    // printf("\n");
 
+    // /* Question 7 --> To an array using Bubble Sort */
+    // int n;
+    // printf("Enter size of array :");
+    // scanf("%d",&n);
+    // int arr[n];
+    // for(int i = 0; i < n; i++){
+    //     printf("Enter array element : ");
+    //     scanf("%d",&arr[i]);
+    // }
+    // bubbleSort(n,arr);
+    
+    // /* Question 8 --> To search for element in array using linear search */
+    int arr[] = {3,2,6,1,9,8,0,7};
+    int x;
+    printf("Enter your element do you want ? \n");
+    scanf("%d",&x);
+    if(linearSearch(x,arr) != -1){
+        printf("Element is found : %d \n",x);
+    }else{
+        printf("Element is not found : %d \n",x);
+    }
     return 0;
 }
