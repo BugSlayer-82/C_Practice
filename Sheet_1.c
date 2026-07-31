@@ -1,17 +1,16 @@
 #include <stdio.h>
 
 // /* Question 6 --> To print the Fibonacci Series */
-void printFibonacci(int n){
-    int first = 0;
-    int second = 1;
-    
-    for(int i = 0 ; i < n; i++){
-        printf("%d ",first);
-        int third = first + second;
-        first = second;
-        second = third;
-    }
-}
+// void printFibonacci(int n){
+//     int first = 0;
+//     int second = 1;
+//     for(int i = 0 ; i < n; i++){
+//         printf("%d ",first);
+//         int third = first + second;
+//         first = second;
+//         second = third;
+//     }
+// }
 
 // /* Question 5(a) --> To find the factorial of a number n (Through Iterative) */
 //  long int factorial(int n){
