@@ -1,17 +1,111 @@
 #include <stdio.h>
 
-// /* Question 8 --> To search for element in array using linear search */
-int linearSearch(int x,int arr[]){
-    int lenthArr = sizeof(arr)/sizeof(arr[0]); // gain the size of array
-    for(int i = 0; i < lenthArr; i++){
-        if(arr[i] == x){ // Search for element x in array 
-            return arr[i]; // return the element
-        }
-    }
-    return -1; // element not found
-}
+// /* Question 15 --> To Calculate the sum of array elemetn */
+// int sumOfArray(int n, int arr[n], int sum)
+// {
+//     if (n <= 0)
+//     {
+//         return sum;
+//     }
+//     return sumOfArray(n - 1, arr, sum + arr[n - 1]);
+// }
 
-// /* Question 7 --> To an array using Bubble Sort */
+// /* Question 14 --> To transpose a matrix */
+// void transposeMatrix(int m,int n){
+//     int matA[m][n];
+//     printf("Matrix Input of %d X %d \n",m,n);
+//     for(int i = 0; i < m; i ++){
+//         for(int j = 0; j < n; j++){
+//             printf("Enter matrix element : ");
+//             scanf("%d",&matA[i][j]);
+//         }
+//     }
+//     // Matrix Output
+//     for(int i = 0; i < m; i ++){
+//         for(int j = 0; j < n; j++){
+//             printf("%d \t",matA[i][j]);
+//         }
+//         printf("\n");
+//     }
+//     // Tanspose perform
+//     int matB[m][n];
+//     for(int i = 0; i < m; i ++){
+//         for(int j = 0; j < n; j++){
+//             matB[i][j] = matA[j][i];
+//         }
+//     }
+//     printf("Transpose of matrix is :- \n");
+//     for(int i = 0; i < m; i ++){
+//         for(int j = 0; j < n; j++){
+//             printf("%d \t",matB[i][j]);
+//         }
+//         printf("\n");
+//     }
+// }
+
+// /* Question 11 --> To swap to number */
+// void swap(int *a, int *b)
+// {
+//     int temp = *a;
+//     *a = *b;
+//     *b = temp;
+// }
+
+// /* Question 10 --> To reverse an string */
+// void reverse(int n ,char str[n])
+// {
+//     int first = 0;
+//     int last = n - 1 ;
+//     while (first < last)
+//     {
+//         char ch = str[first];
+//         str[first] = str[last];
+//         str[last] = ch;
+//         first++;
+//         last--;
+//     }
+//     for (int i = 0; i < n; i++)
+//     {
+//         printf("%c", str[i]);
+//     }
+//     printf("\n");
+// }
+
+// /* Question 8(a) --> To search for element in array using linear search */
+// int linearSearch(int n, int x,int arr[n]){
+//     for(int i = 0; i < n; i++){
+//         if(arr[i] == x){ // Search for element x in array
+//             return arr[i]; // return the element
+//         }
+//     }
+//     return -1; // element not found
+// }
+
+// /* Question 8(b) --> To search for element in array using Binary Search */
+// int binarySearch(int n, int x, int arr[n])
+// {
+//     int first = 0;
+//     int last = n - 1;
+//     while (first <= last)
+//     {
+//         int mid = first + (last - first) / 2;
+//         if (arr[mid] == x)
+//         {
+//             return arr[mid];
+//         }
+//         else if (arr[mid] > x)
+//         {
+//             last = mid - 1;
+//         }
+//         else
+//         {
+//             first = mid + 1;
+//         }
+//     }
+//     return -1;
+// }
+
+// /* Question 7 --> To an array using Bubble Sort */ // re check
 // void bubbleSort(int n,int arr[]){
 //     for(int i = 0; i < n - 1; i++){
 //         for(int j = i; j < n - 1; j++){
@@ -21,7 +115,7 @@ int linearSearch(int x,int arr[]){
 //                 arr[j + 1] = temp;
 //             }
 //         }
-//     }   
+//     }
 //     for(int i = 0; i < n; i ++){
 //         printf("%d ",arr[i]);
 //     }
@@ -184,10 +278,10 @@ int main()
     // printf("%ld : is a factorial of : %d \n", factorial(n), n);
 
     // /* Question 6 --> To print the Fibonacci Series */
-    // int n; 
-    // printf("Enter your number of term : "); 
+    // int n;
+    // printf("Enter your number of term : ");
     // scanf("%d",&n);
-    // printFibonacci(n);    
+    // printFibonacci(n);
     // printf("\n");
 
     // /* Question 7 --> To an array using Bubble Sort */
@@ -200,16 +294,82 @@ int main()
     //     scanf("%d",&arr[i]);
     // }
     // bubbleSort(n,arr);
-    
-    // /* Question 8 --> To search for element in array using linear search */
-    int arr[] = {3,2,6,1,9,8,0,7};
-    int x;
-    printf("Enter your element do you want ? \n");
-    scanf("%d",&x);
-    if(linearSearch(x,arr) != -1){
-        printf("Element is found : %d \n",x);
-    }else{
-        printf("Element is not found : %d \n",x);
+
+    // /* Question 8(a) --> To search for element in array using linear search */
+    // int x,n,ans;
+    // printf("Enter the size of array : ");
+    // scanf("%d",&n);
+    // int arr[n];
+    // for(int i = 0; i < n; i++){
+    //     printf("Enter array element : ");
+    //     scanf("%d",&arr[i]);
+    // }
+    // printf("Enter your element do you want ? \n");
+    // scanf("%d",&x);
+    // ans = linearSearch(n,x,arr);
+    // if(ans != -1){
+    //     printf("Element is found : %d \n",ans);
+    // }else{
+    //     printf("Element is not found : %d \n",x);
+    // }
+
+    // /* Question 8(b) --> To search for element in array using Binary search */
+    // int x, n, ans;
+    // printf("Enter the size of array : ");
+    // scanf("%d", &n);
+    // int arr[n];
+    // printf("Please enter sorted array .... \n");
+    // for (int i = 0; i < n; i++)
+    // {
+    //     printf("Enter array element : ");
+    //     scanf("%d", &arr[i]);
+    // }
+    // printf("Enter your element do you want ? \n");
+    // scanf("%d", &x);
+    // ans = binarySearch(n, x, arr);
+    // if (ans != -1)
+    // {
+    //     printf("Element is found : %d \n", ans);
+    // }
+    // else
+    // {
+    //     printf("Element is not found : %d \n", x);
+    // }
+
+    // /* Question 10 --> To reverse an string */
+    // char str[] = "This is a program to reverse a string";
+    // int n = sizeof(str)/sizeof(str[0]);
+    // reverse(n,str);
+
+    // /* Question 11 --> To swap two number */
+    // int a, b;
+    // printf("Enter your number a : ");
+    // scanf("%d", &a);
+    // printf("Enter your number b : ");
+    // scanf("%d",&b);
+    // swap(&a, &b);
+    // printf("Value of a : %d, b: %d \n", a, b);
+
+    // /* Question 14 --> To transpose a matrix */
+    // int m, n;
+    // printf("Enter the size of matrix ? \n");
+    // printf("Enter the value of m : ");
+    // scanf("%d", &m);
+    // printf("Enter the value of n : ");
+    // scanf("%d", &n);
+    // transposeMatrix(m, n);
+
+    // /* Question 15 --> To Calculate the sum of array elemetn */
+    int n;
+    printf("Enter the size of Array : ");
+    scanf("%d", &n);
+    int arr[n];
+    for(int i = 0; i < n; i++){
+        printf("Enter array element : ");
+        scanf("%d",&arr[i]);
     }
+    int result = sumOfArray(n, arr, 0);
+    printf("Sum is : %d \n", result);
+
     return 0;
 }
