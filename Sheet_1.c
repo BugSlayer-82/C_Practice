@@ -43,6 +43,10 @@
 //     }
 // }
 
+// /* Question  13 --> To remove duplicates from array */
+
+// /* Question 12 --> To find the second largest element in array */
+
 // /* Question 11 --> To swap to number */
 // void swap(int *a, int *b)
 // {
@@ -69,6 +73,44 @@
 //         printf("%c", str[i]);
 //     }
 //     printf("\n");
+// }
+
+// /* Question 9 --> To count Vowels, consonants, digits  and spaces in a string */
+// void countOfVowel(int n, char str[n])
+// {
+//     int vowels, consonant, digit, spaces;
+//     vowels = 0, consonant = 0, digit = 0, spaces = 0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         char ch = str[i];
+//         if ((ch >= 'A') && (ch <= 'Z') || (ch >= 'a') && (ch <= 'z'))
+//         {
+//             if ((ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') ||
+//                 (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U'))
+//             { // Count vowels
+//                 vowels++;
+//             }
+//             else
+//             { // Count consonant
+//                 consonant++;
+//             }
+//         }
+//         else if ((ch >= '0') && (ch <= '9'))
+//         { // Count digits
+//             digit++;
+//         }
+//         else
+//         {
+//             if (ch == ' ')
+//             { // Count spaces
+//                 spaces++;
+//             }
+//         }
+//     }
+//     printf("Vowels are : %d \n", vowels);
+//     printf("Consonants are : %d \n", consonant);
+//     printf("Digits are : %d \n", digit);
+//     printf("Spaces are : %d \n", spaces);
 // }
 
 // /* Question 8(a) --> To search for element in array using linear search */
@@ -336,6 +378,11 @@ int main()
     //     printf("Element is not found : %d \n", x);
     // }
 
+    // /* Question 9 --> To count Vowels, consonants, digits  and spaces in a string */
+    // char str[] = "This is vowel and are consonant 345034 digit";
+    // int n = sizeof(str) / sizeof(str[0]);
+    // countOfVowel(n, str);
+
     // /* Question 10 --> To reverse an string */
     // char str[] = "This is a program to reverse a string";
     // int n = sizeof(str)/sizeof(str[0]);
@@ -360,16 +407,16 @@ int main()
     // transposeMatrix(m, n);
 
     // /* Question 15 --> To Calculate the sum of array elemetn */
-    int n;
-    printf("Enter the size of Array : ");
-    scanf("%d", &n);
-    int arr[n];
-    for(int i = 0; i < n; i++){
-        printf("Enter array element : ");
-        scanf("%d",&arr[i]);
-    }
-    int result = sumOfArray(n, arr, 0);
-    printf("Sum is : %d \n", result);
+    // int n;
+    // printf("Enter the size of Array : ");
+    // scanf("%d", &n);
+    // int arr[n];
+    // for(int i = 0; i < n; i++){
+    //     printf("Enter array element : ");
+    //     scanf("%d",&arr[i]);
+    // }
+    // int result = sumOfArray(n, arr, 0);
+    // printf("Sum is : %d \n", result);
 
     return 0;
 }
