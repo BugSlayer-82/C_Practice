@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// /* Question 15 --> To Calculate the sum of array elemetn */
+// /* Question 15 --> To Calculate the sum of array element */
 // int sumOfArray(int n, int arr[n], int sum)
 // {
 //     if (n <= 0)
@@ -44,6 +44,26 @@
 // }
 
 // /* Question  13 --> To remove duplicates from array */
+void removeDuplicates(int n, int arr[n])
+{
+    for (int i = 0; i < n; i++)
+    {
+        int curr = arr[i];
+        for (int j = 1; j < n; j++)
+        {
+            if (curr == arr[j])
+            {
+                arr[j] = arr[j + 1];
+                arr[j + 1] = arr[j - i - 1];
+                n--;
+            }
+        }
+    }
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d", n);
+    }
+}
 
 // /* Question 12 --> To find the second largest element in array */
 
@@ -396,6 +416,18 @@ int main()
     // scanf("%d",&b);
     // swap(&a, &b);
     // printf("Value of a : %d, b: %d \n", a, b);
+
+    // /* Question  13 --> To remove duplicates from array */
+    int n;
+    printf("Enter the size of array \n");
+    int arr[n];
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+    {
+        printf("Enter array element : ");
+        scanf("%d", &arr[i]);
+    }
+    removeDuplicates(n, arr);
 
     // /* Question 14 --> To transpose a matrix */
     // int m, n;
