@@ -46,15 +46,29 @@
 // /* Question  13 --> To remove duplicates from array */
 void removeDuplicates(int n, int arr[n])
 {
-    // for (int i = 0; i < n; i++)
-    // {
-       
-    // }
-
+    printf("Actual array \n");
     for (int i = 0; i < n; i++)
     {
         printf("%d ", arr[i]);
     }
+    printf("\nUnique elemets\n");
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[i] == arr[j])
+            {
+                arr[j] = arr[j + 1];
+                n--;
+                j--;
+            }
+        }
+    }
+
+    for(int i = 0; i < n; i++){
+        printf("%d ",arr[i]);
+    }
+    printf("\n");
 }
 
 // /* Question 12 --> To find the second largest element in array */
@@ -411,16 +425,14 @@ int main()
 
     // /* Question  13 --> To remove duplicates from array */
     int n;
-    // printf("Enter the size of array \n");
-    // int arr[n];
-    int arr[] = {3,5,2,4,2,7,6,2};
-    int n = sizeof(arr);
-    // scanf("%d", &n);
-    // for (int i = 0; i < n; i++)
-    // {
-    //     printf("Enter array element : ");
-    //     scanf("%d", &arr[i]);
-    // }
+    printf("Enter the size of array \n");
+    scanf("%d", &n);
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        printf("Enter array element : ");
+        scanf("%d", &arr[i]);
+    }
     removeDuplicates(n, arr);
 
     // /* Question 14 --> To transpose a matrix */
