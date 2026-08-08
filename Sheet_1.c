@@ -44,32 +44,31 @@
 // }
 
 // /* Question  13 --> To remove duplicates from array */
-void removeDuplicates(int n, int arr[n])
-{
-    printf("Actual array \n");
-    for (int i = 0; i < n; i++)
-    {
-        printf("%d ", arr[i]);
-    }
-    printf("\nUnique elemets\n");
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = i + 1; j < n; j++)
-        {
-            if (arr[i] == arr[j])
-            {
-                arr[j] = arr[j + 1];
-                n--;
-                j--;
-            }
-        }
-    }
-
-    for(int i = 0; i < n; i++){
-        printf("%d ",arr[i]);
-    }
-    printf("\n");
-}
+// void removeDuplicates(int n, int arr[n])
+// {
+//     printf("Actual array \n");
+//     for (int i = 0; i < n; i++)
+//     {
+//         printf("%d ", arr[i]);
+//     }
+//     printf("\nUnique elemets\n");
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = i + 1; j < n; j++)
+//         {
+//             if (arr[i] == arr[j])
+//             {
+//                 arr[j] = arr[j + 1];
+//                 n--;
+//                 j--;
+//             }
+//         }
+//     }
+//     for(int i = 0; i < n; i++){
+//         printf("%d ",arr[i]);
+//     }
+//     printf("\n");
+// }
 
 // /* Question 12 --> To find the second largest element in array */
 
@@ -173,22 +172,25 @@ void removeDuplicates(int n, int arr[n])
 //     return -1;
 // }
 
-// /* Question 7 --> To an array using Bubble Sort */ // re check
-// void bubbleSort(int n,int arr[]){
-//     for(int i = 0; i < n - 1; i++){
-//         for(int j = i; j < n - 1; j++){
-//             if(arr[j] > arr[j+1]){
-//                 int temp = arr[j];
-//                 arr[j] = arr[j + 1];
-//                 arr[j + 1] = temp;
-//             }
-//         }
-//     }
-//     for(int i = 0; i < n; i ++){
-//         printf("%d ",arr[i]);
-//     }
-//     printf("\n");
-// }
+// /* Question 7 --> To an array using Bubble Sort */
+void bubbleSort(int n, int arr[])
+{
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n - i - 1; j ++){
+            if(arr[j] > arr[j + 1]){
+                int temp = arr[j]; 
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    printf("Sorted array \n");
+    for(int i = 0; i < n; i++){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
 
 // /* Question 6 --> To print the Fibonacci Series */
 // void printFibonacci(int n){
@@ -353,15 +355,16 @@ int main()
     // printf("\n");
 
     // /* Question 7 --> To an array using Bubble Sort */
-    // int n;
-    // printf("Enter size of array :");
-    // scanf("%d",&n);
-    // int arr[n];
-    // for(int i = 0; i < n; i++){
-    //     printf("Enter array element : ");
-    //     scanf("%d",&arr[i]);
-    // }
-    // bubbleSort(n,arr);
+    int n;
+    printf("Enter size of array : ");
+    scanf("%d", &n);
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {
+        printf("Enter array element : ");
+        scanf("%d", &arr[i]);
+    }
+    bubbleSort(n, arr);
 
     // /* Question 8(a) --> To search for element in array using linear search */
     // int x,n,ans;
@@ -424,16 +427,16 @@ int main()
     // printf("Value of a : %d, b: %d \n", a, b);
 
     // /* Question  13 --> To remove duplicates from array */
-    int n;
-    printf("Enter the size of array \n");
-    scanf("%d", &n);
-    int arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        printf("Enter array element : ");
-        scanf("%d", &arr[i]);
-    }
-    removeDuplicates(n, arr);
+    // int n;
+    // printf("Enter the size of array \n");
+    // scanf("%d", &n);
+    // int arr[n];
+    // for (int i = 0; i < n; i++)
+    // {
+    //     printf("Enter array element : ");
+    //     scanf("%d", &arr[i]);
+    // }
+    // removeDuplicates(n, arr);
 
     // /* Question 14 --> To transpose a matrix */
     // int m, n;
