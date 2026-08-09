@@ -449,16 +449,16 @@ int main()
     // printf("Value of a : %d, b: %d \n", a, b);
 
     // /* Question 12 --> To find the second largest element in array */
-    int n;
-    printf("Enter the array size : ");
-    scanf("%d", &n);
-    int arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        printf("Enter array element : ");
-        scanf("%d", &arr[i]);
-    }
-    printf("Second largest == > %d \n", secondLargest(n, arr));
+    // int n;
+    // printf("Enter the array size : ");
+    // scanf("%d", &n);
+    // int arr[n];
+    // for (int i = 0; i < n; i++)
+    // {
+    //     printf("Enter array element : ");
+    //     scanf("%d", &arr[i]);
+    // }
+    // printf("Second largest == > %d \n", secondLargest(n, arr));
 
     // /* Question  13 --> To remove duplicates from array */
     // int n;
