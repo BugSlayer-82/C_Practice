@@ -72,14 +72,19 @@
 // }
 
 // /* Question 12 --> To find the second largest element in array */
-// int secondLargest(int n,int arr[n]){
-//     int max = arr[0];
+// int secondLargest(int n, int arr[n])
+// {
+//     int max = INT_MIN;
 //     int secMax = INT_MIN;
-//     for(int i = 1 ; i < n; i++){
-//         if(max < arr[i]){
+//     for (int i = 0; i < n; i++)
+//     {
+//         if (max < arr[i])
+//         {
 //             secMax = max;
 //             max = arr[i];
-//         }else if(max > arr[i]&& secMax < arr[i]){
+//         }
+//         else if (max >= arr[i] && secMax < arr[i])
+//         {
 //             secMax = arr[i];
 //         }
 //     }
@@ -446,13 +451,14 @@ int main()
     // /* Question 12 --> To find the second largest element in array */
     // int n;
     // printf("Enter the array size : ");
-    // scanf("%d",&n);
+    // scanf("%d", &n);
     // int arr[n];
-    // for(int i = 0; i < n; i++){
+    // for (int i = 0; i < n; i++)
+    // {
     //     printf("Enter array element : ");
-    //     scanf("%d",&arr[i]);
+    //     scanf("%d", &arr[i]);
     // }
-    // printf("Second largest == > %d \n",secondLargest(n,arr));
+    // printf("Second largest == > %d \n", secondLargest(n, arr));
 
     // /* Question  13 --> To remove duplicates from array */
     // int n;
