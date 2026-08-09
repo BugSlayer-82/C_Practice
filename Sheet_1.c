@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 
 // /* Question 15 --> To Calculate the sum of array element */
 // int sumOfArray(int n, int arr[n], int sum)
@@ -71,6 +72,19 @@
 // }
 
 // /* Question 12 --> To find the second largest element in array */
+// int secondLargest(int n,int arr[n]){
+//     int max = arr[0];
+//     int secMax = INT_MIN;
+//     for(int i = 1 ; i < n; i++){
+//         if(max < arr[i]){
+//             secMax = max;
+//             max = arr[i];
+//         }else if(max > arr[i]&& secMax < arr[i]){
+//             secMax = arr[i];
+//         }
+//     }
+//     return secMax;
+// }
 
 // /* Question 11 --> To swap to number */
 // void swap(int *a, int *b)
@@ -173,24 +187,27 @@
 // }
 
 // /* Question 7 --> To an array using Bubble Sort */
-void bubbleSort(int n, int arr[])
-{
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n - i - 1; j ++){
-            if(arr[j] > arr[j + 1]){
-                int temp = arr[j]; 
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-            }
-        }
-    }
-
-    printf("Sorted array \n");
-    for(int i = 0; i < n; i++){
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-}
+// void bubbleSort(int n, int arr[])
+// {
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = 0; j < n - i - 1; j++)
+//         {
+//             if (arr[j] > arr[j + 1])
+//             {
+//                 int temp = arr[j];
+//                 arr[j] = arr[j + 1];
+//                 arr[j + 1] = temp;
+//             }
+//         }
+//     }
+//     printf("Sorted array \n");
+//     for (int i = 0; i < n; i++)
+//     {
+//         printf("%d ", arr[i]);
+//     }
+//     printf("\n");
+// }
 
 // /* Question 6 --> To print the Fibonacci Series */
 // void printFibonacci(int n){
@@ -355,16 +372,16 @@ int main()
     // printf("\n");
 
     // /* Question 7 --> To an array using Bubble Sort */
-    int n;
-    printf("Enter size of array : ");
-    scanf("%d", &n);
-    int arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        printf("Enter array element : ");
-        scanf("%d", &arr[i]);
-    }
-    bubbleSort(n, arr);
+    // int n;
+    // printf("Enter size of array : ");
+    // scanf("%d", &n);
+    // int arr[n];
+    // for (int i = 0; i < n; i++)
+    // {
+    //     printf("Enter array element : ");
+    //     scanf("%d", &arr[i]);
+    // }
+    // bubbleSort(n, arr);
 
     // /* Question 8(a) --> To search for element in array using linear search */
     // int x,n,ans;
@@ -425,6 +442,17 @@ int main()
     // scanf("%d",&b);
     // swap(&a, &b);
     // printf("Value of a : %d, b: %d \n", a, b);
+
+    // /* Question 12 --> To find the second largest element in array */
+    // int n;
+    // printf("Enter the array size : ");
+    // scanf("%d",&n);
+    // int arr[n];
+    // for(int i = 0; i < n; i++){
+    //     printf("Enter array element : ");
+    //     scanf("%d",&arr[i]);
+    // }
+    // printf("Second largest == > %d \n",secondLargest(n,arr));
 
     // /* Question  13 --> To remove duplicates from array */
     // int n;
