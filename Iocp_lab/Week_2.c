@@ -94,19 +94,23 @@ int main()
 // }
 
 // Question 6 --> Triangle with character
-void characterTriangle(char ch){ 
-    for(int i = 'A'; i <= ch; i++){
-        for(int j = 'A'; j <= ch; j++){
-            printf(" * ");
+void characterTriangle(char ch)
+{
+    for (int i = 'A'; i <= ch; i++)
+    {
+        // for (int j = 'A'; j <= ch - i - 1; j++)
+        // {
+        //     printf(" ");
+        // }
+        for (int j = 'A'; j <= i; j++)
+        {
+            printf("%c ", j);
         }
-        for(int j = 'A'; j <= i; j++){
-            printf("%c ",j);
-        }   
         printf("\n");
     }
 }
 
-// Question 7 --> Diamond pattern with star 
+// Question 7 --> Diamond pattern with star
 // void diamondPattern(int n){
 //     for(int i = 1; i <= n; i++){
 //         for(int j = 1; j <= n - i; j++){
