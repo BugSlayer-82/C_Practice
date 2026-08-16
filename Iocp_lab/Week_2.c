@@ -17,7 +17,7 @@ int main()
     // printf("Enter the value of n : ");
     // scanf("%d", &n);
     printf("Enter the character in Capital : ");
-    scanf("%c",&ch);
+    scanf("%c", &ch);
     // rightAngle_1(n);
     // rightAngle_2(n);
     // rightAngle_3(ch);
@@ -94,21 +94,20 @@ int main()
 // }
 
 // Question 6 --> Triangle with character
-void characterTriangle(char ch)
-{
-    for (int i = 'A'; i <= ch; i++)
-    {
-        // for (int j = 'A'; j <= ch - i - 1; j++)
-        // {
-        //     printf(" ");
-        // }
-        for (int j = 'A'; j <= i; j++)
-        {
-            printf("%c ", j);
-        }
-        printf("\n");
-    }
-}
+// void characterTriangle(char ch)
+// {
+//     for (int i = 'A'; i <= ch; i++)
+//     {
+//         for(int j = ch; j > i; j--){
+//             printf(" ");
+//         }
+//         for (int j = 'A'; j <= i; j++)
+//         {
+//             printf("%c ", j);
+//         }
+//         printf("\n");
+//     }
+// }
 
 // Question 7 --> Diamond pattern with star
 // void diamondPattern(int n){
