@@ -95,20 +95,17 @@ int main()
 
 // Question 6 --> Triangle with character
 void characterTriangle(char ch)
+
 {
     for (int i = 'A'; i <= ch; i++)
     {
-        for(int j = ch; j > i; j--){
-            printf(" ");
-        }
-        for (int j = 'A'; j <= i; j++)
-        {
-            printf("%c ", j);
-        }
-        for(int j = ch; j <= i; j++){
-            printf("%c ",'A');
-        }
-        printf("\n");
+        // This inner loop print the star
+        
+        // This inner loop print the element
+       for(int j = 'A'; j <= i; j++){
+        printf("%c ",j);
+       }
+       printf("\n");
     }
 }
 
