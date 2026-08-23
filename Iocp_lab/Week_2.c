@@ -13,17 +13,17 @@ void characterTriangle(char ch); // Triangle with character
 int main()
 {
     // int n;
-    char ch;
+    // char ch;
     // printf("Enter the value of n : ");
     // scanf("%d", &n);
-    printf("Enter the character in Capital : ");
-    scanf("%c", &ch);
+    // printf("Enter the character in Capital : ");
+    // scanf("%c", &ch);
     // rightAngle_1(n);
     // rightAngle_2(n);
     // rightAngle_3(ch);
     // triangle(n);
     // numberTriangle(n);
-    characterTriangle(ch);
+    // characterTriangle(ch);
     // diamondPattern(n);
     // floydsTriangle(n);
     // pascalTriangle(n);
@@ -94,20 +94,28 @@ int main()
 // }
 
 // Question 6 --> Triangle with character
-void characterTriangle(char ch)
-
-{
-    for (int i = 'A'; i <= ch; i++)
-    {
-        // This inner loop print the star
-        
-        // This inner loop print the element
-       for(int j = 'A'; j <= i; j++){
-        printf("%c ",j);
-       }
-       printf("\n");
-    }
-}
+// void characterTriangle(char ch)
+// {
+//     for (int i = 'A'; i <= ch; i++)
+//     {
+//         // This inner loop print the spaces
+//         for (int j = 1; j <= ch - i; j++)
+//         {
+//             printf("  ");
+//         }
+//         // This inner loop print the element first pyramid in increasing order
+//         for (int j = 'A'; j <= i; j++)
+//         {
+//             printf("%c ", j);
+//         }
+//         // This inner loop print the element second pyramid in decreasing order
+//         for (int j = i - 1; j >= 'A'; j--)
+//         {
+//             printf("%c ", j);
+//         }
+//         printf("\n");
+//     }
+// }
 
 // Question 7 --> Diamond pattern with star
 // void diamondPattern(int n){
