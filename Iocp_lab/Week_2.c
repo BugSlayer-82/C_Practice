@@ -3,7 +3,7 @@
 // void pascalTriangle(int n); // Pascal's Triangle with number
 // void floydsTriangle(int n);      // Floyd's triangle with number
 // void diamondPattern(int n);      // Diamond pattern with star
-void characterTriangle(char ch); // Triangle with character
+// void characterTriangle(char ch); // Triangle with character
 // void numberTriangle(int n);      // Triangle with number
 // void triangle(int n); // Triangle with star
 // void rightAngle_3(char ch); // Right angle triangle with character
