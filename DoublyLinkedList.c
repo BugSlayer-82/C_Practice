@@ -12,7 +12,7 @@ struct Node * head = NULL;
 void addFirst(int data){
     struct Node * newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode -> data = data;
-
+    
 }
 
 void addLast(int data){
