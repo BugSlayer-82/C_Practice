@@ -1,146 +1,203 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>  // Provides printf()
+#include <stdlib.h> // Provides malloc(), free(), and NULL
 
-struct Node
+struct Node // Define a node for the doubly linked list
 {
-    int data;
-    struct Node *next;
-    struct Node *prev;
+    int data;          // Stores the data of the node
+    struct Node *next; // Stores the address of the next node
+    struct Node *prev; // Stores the address of the previous node
 };
 
-struct Node *head = NULL;
+struct Node *head = NULL; // head points to the first node of the list
 
-void addFirst(int data)
+void addFirst(int data) // Function to add a node at the beginning
 {
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    newNode->data = data;
-    newNode->next = head;
-    if (head != NULL)
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node)); // Allocate memory for a new node
+    newNode->data = data;                                              // Store the given data in the new node
+    newNode->next = head;                                              // Connect the new node to the current first node
+    if (head != NULL)                                                  // Check if the list already contains a node
     {
-        head->prev = newNode;
+        head->prev = newNode; // Make the old first node point back to the new node
     }
-    newNode->prev = NULL;
-    head = newNode;
+    newNode->prev = NULL; // New first node has no previous node
+    head = newNode;       // Make the new node the first node
 }
 
-void addLast(int data)
+void addLast(int data) // Function to add a node at the end
 {
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    newNode -> data = data;
-    newNode -> next = NULL;
-    newNode -> prev = NULL;
-
-    if(head == NULL){
-        head = newNode;
-        return;
-    }
-
-    struct Node * currNode = head;
-    while(currNode -> next != NULL){
-        currNode = currNode -> next;
-    }
-    currNode -> next = newNode;
-    newNode -> prev = currNode;
-}
-
-void deleteFirst()
-{
-    if (head == NULL)
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node)); // Allocate memory for a new node
+    newNode->data = data;                                              // Store the given data in the new node
+    newNode->next = NULL;                                              // Last node does not have a next node
+    newNode->prev = NULL;                                              // Initially set previous pointer to NULL
+    if (head == NULL)                                                  // Check if the list is empty
     {
-        printf("List is empty .. \n");
-        return;
+        head = newNode; // Make the new node the first node
+        return;         // Stop the function
     }
-    struct Node *temp = head;
-    head = head->next;
-    if (head != NULL)
+    struct Node *currNode = head;  // Start traversing from the first node
+    while (currNode->next != NULL) // Move until the last node is reached
     {
-        head->prev = NULL;
+        currNode = currNode->next; // Move to the next node
     }
-    printf("Deleted Data : %d \n", temp->data);
-    free(temp);
+    currNode->next = newNode; // Connect the old last node to the new node
+    newNode->prev = currNode; // Connect the new node back to the old last node
 }
 
-void deleteLast()
+void deleteFirst() // Function to delete the first node
 {
-    if(head == NULL){
-        printf("List is empty .. \n");
-        return ;
+    if (head == NULL) // Check if the list is empty
+    {
+        printf("List is empty .. \n"); // Print an empty-list message
+        return;                        // Stop the function
     }
-    if(head -> next == NULL){
-        struct Node * temp = head;
-        head = NULL;
-        printf("Deleted Data : %d \n",temp->data);
-        free(temp);
-        return;
+    struct Node *temp = head; // Store the current first node temporarily
+    head = head->next;        // Move head to the second node
+    if (head != NULL)         // Check if another node exists
+    {
+        head->prev = NULL; // The new first node should have no previous node
     }
-    struct Node *currNode = head;
-    while(currNode -> next != NULL){
-        currNode = currNode -> next;
-    }
-    currNode -> prev -> next = NULL;
-    printf("Deleted Data : %d \n",currNode -> data);
-    free(currNode);
+    printf("Deleted Data : %d \n", temp->data); // Print the deleted data
+    free(temp);                                 // Release the memory of the deleted node
 }
 
-void addAtIndex(int data, int idx)
+void deleteLast() // Function to delete the last node
 {
-    struct Node *currNode = head;
+    if (head == NULL) // Check if the list is empty
+    {
+        printf("List is empty .. \n"); // Print an empty-list message
+        return;                        // Stop the function
+    }
+    if (head->next == NULL) // Check if there is only one node
+    {
+        struct Node *temp = head;                   // Store the only node temporarily
+        head = NULL;                                // Make the list empty
+        printf("Deleted Data : %d \n", temp->data); // Print the deleted data
+        free(temp);                                 // Release the memory of the deleted node
+        return;                                     // Stop the function
+    }
+    struct Node *currNode = head;  // Start traversing from the first node
+    while (currNode->next != NULL) // Move until the last node is reached
+    {
+        currNode = currNode->next; // Move to the next node
+    }
+    currNode->prev->next = NULL;                    // Remove the last node from the forward link
+    printf("Deleted Data : %d \n", currNode->data); // Print the deleted data
+    free(currNode);                                 // Release the memory of the deleted node
 }
 
-void printList()
+void addAtIndex(int data, int pos) // Function to insert a node at a given position
 {
-    if(head == NULL){
-        printf("NULL \n");
-        return;
-    }
-    struct Node *currNode = head;
-    while(currNode != NULL){
-        if(currNode -> next != NULL){
-            printf("%d <--> ",currNode -> data);
-        }else{
-            printf("%d --> ",currNode -> data);
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node)); // Allocate memory for a new node
+    newNode->data = data;                                              // Store the given data in the new node
+    if (pos <= 1)                                                      // Check if the node should be inserted at the beginning
+    {
+        newNode->next = head; // Connect new node to the current first node
+        newNode->prev = NULL; // New first node has no previous node
+        if (head != NULL)     // Check if the list is not empty
+        {
+            head = newNode; // Make the new node the first node
+            return;         // Stop the function
         }
-        currNode = currNode -> next;
     }
-    printf("NULL \n");
+    struct Node *currNode = head;                         // Start traversing from the first node
+    for (int i = 1; i < pos - 1 && currNode != NULL; i++) // Move to the node before the required position
+    {
+        currNode = currNode->next; // Move to the next node
+    }
+    if (currNode == NULL) // Check if the given position is invalid
+    {
+        printf("Invalid index or position ...!"); // Print an invalid-position message
+        free(newNode);                            // Release the allocated memory
+        return;                                   // Stop the function
+    }
+    newNode->next = currNode->next; // Connect new node to the next node
+    newNode->prev = currNode;       // Connect new node back to the current node
+    currNode->next = newNode;       // Connect current node to the new node
+    if (newNode->next != NULL)      // Check if a node exists after the new node
+    {
+        newNode->next->prev = newNode; // Update the next node's previous pointer
+    }
 }
 
-int count()
+void deleteFromIndex(int pos) // Function to delete a node from a given position
 {
-    if(head == NULL){
-        return 0;
-    }
-    int count = 0;
-    struct Node * currNode = head;
-    while(currNode != NULL){
-        count++;
-        currNode = currNode -> next;
-    }
-    return count;
+    struct Node *currNode = head; // Start from the first node
 }
 
-void search()
+void printList() // Function to display the doubly linked list
 {
-    struct Node *currNode = head;
+    if (head == NULL) // Check if the list is empty
+    {
+        printf("NULL \n"); // Print NULL for an empty list
+        return;            // Stop the function
+    }
+    struct Node *currNode = head; // Start traversing from the first node
+    while (currNode != NULL)      // Continue until the end of the list
+    {
+        if (currNode->next != NULL) // Check if this is not the last node
+        {
+            printf("%d <--> ", currNode->data); // Print the current node with a two-way link
+        }
+        else // Execute for the last node
+        {
+            printf("%d --> ", currNode->data); // Print the last node
+        }
+        currNode = currNode->next; // Move to the next node
+    }
+    printf("NULL \n"); // Show the end of the list
 }
 
-int main()
+int count() // Function to count the total number of nodes
 {
-    addFirst(5);
-    addFirst(4);
-    addFirst(3);
-    addFirst(2);
-    addFirst(1);
-    printList();
-    printf("Count : %d \n",count());
-    deleteFirst();
-    printf("Count : %d \n",count());
-    printList();
-    printf("Count : %d \n",count());
-    deleteLast();
-    printf("Count : %d \n",count());
-    printList();
-    printf("Count : %d \n",count());
+    if (head == NULL) // Check if the list is empty
+    {
+        return 0; // Return 0 because there are no nodes
+    }
+    int count = 0;                // Store the number of nodes
+    struct Node *currNode = head; // Start traversing from the first node
+    while (currNode != NULL)      // Continue until the end of the list
+    {
+        count++;                   // Increase the node count
+        currNode = currNode->next; // Move to the next node
+    }
+    return count; // Return the total number of nodes
+}
 
-    return 0;
+void search(int target) // Function to search for a given value
+{
+    if (head == NULL) // Check if the list is empty
+    {
+        printf("List is empty ...!"); // Print an empty-list message
+        return;                       // Stop the function
+    }
+    struct Node *currNode = head; // Start searching from the first node
+    int i = 1;                    // Store the position of the current node
+    while (currNode != NULL)      // Continue until the end of the list
+    {
+        if (currNode->data == target) // Check if the current node contains the target
+        {
+            printf("Element is found at : %d \n", i); // Print the position of the found element
+            return;                                   // Stop searching after finding the element
+        }
+        i++;                       // Move to the next position
+        currNode = currNode->next; // Move to the next node
+    }
+    printf("Element not found ...! \n"); // Print message if the target is not found
+}
+
+int main() // Program execution starts here
+{
+    addFirst(5);                      // Add 5 at the beginning
+    addFirst(4);                      // Add 4 at the beginning
+    addFirst(2);                      // Add 2 at the beginning
+    addFirst(1);                      // Add 1 at the beginning
+    printList();                      // Display the current list
+    addAtIndex(3, 3);                 // Insert 3 at position 3
+    printList();                      // Display the list after insertion
+    printf("Count : %d \n", count()); // Count and print the total nodes
+    search(4);                        // Search for the element 4
+    deleteFirst();                    // Delete the first node
+    printList();                      // Display the list after deletion
+
+    return 0; // End the program successfully
 }
