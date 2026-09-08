@@ -20,8 +20,10 @@ int pop(){
         printf("Stack is empty ...! \n");
         return -1;
     }
+    struct Node * temp = top;
     int value = top -> data;
     top = top -> next;
+    free(temp);
     return value;
 }
 

@@ -24,9 +24,11 @@ int pop() // Function to remove and return the top element
         printf("Stack is empty ...! \n"); // Print an empty-stack message
         return -1;                        // Return -1 when there is no element to remove
     }
-    int value = top->data; // Store the top element before removing the node
-    top = top->next;       // Move top to the next node
-    return value;          // Return the removed value
+    struct Node *temp = top; // Store the current top node temporarily
+    int value = top->data;   // Store the top element before removing the node
+    top = top->next;         // Move top to the next node
+    free(temp);              // Free the memory of the removed node
+    return value;            // Return the removed value
 }
 
 void printStack() // Function to display all stack elements
@@ -44,11 +46,10 @@ void printStack() // Function to display all stack elements
     }
 }
 
-int main() // Program execution starts here
+int postFix(char ch[]) // Function to evalute postfix expression
 {
-    char ch[] = "724+*2/"; // Store the postfix expression
-    int i = 0;             // Start from the first character of the expression
-    while (ch[i] != '\0')  // Continue until the null character is reached
+    int i = 0;            // Start from the first character of the expression
+    while (ch[i] != '\0') // Continue until the null character is reached
     {
         if (ch[i] >= '0' && ch[i] <= '9') // Check whether the current character is a digit
         {
@@ -85,6 +86,13 @@ int main() // Program execution starts here
         }
         i++; // Move to the next character
     }
-    printf("Result ==> %d \n", pop()); // Pop and print the final result
-    return 0;                          // End the program successfully
+    return pop(); // Pop and return the final result and End the program successfully
+}
+
+int main()
+{                                            // Program execution starts here
+    char ch[] = "724+*2/";                   // Store the postfix expression
+    printf("Result ==> %d \n", postFix(ch)); // Print the final result of Postfix Evaluation
+
+    return 0;
 }

@@ -11,51 +11,57 @@ struct Node
 struct Node *poly1 = NULL;
 struct Node *poly2 = NULL;
 
-void addLast(struct Node **head, int c, int e)
+struct Node *insert(struct Node *head, int coef, int exp)
 {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    newNode->coeff = c;
-    newNode->expo = e;
-    newNode->next = NULL;
-    if (*head == NULL)
-    {
-        *head = newNode;
-        return;
+    if(newNode == NULL){
+        printf("Memory allocation is failed ..! \n");
+        return head;
     }
-    struct Node *currNode = *head;
+    newNode->expo = exp;
+    newNode->coeff = coef;
+    newNode->next = NULL;
+
+    if (head == NULL)
+    {
+        return newNode;
+    }
+
+    struct Node *currNode = head;
     while (currNode->next != NULL)
     {
         currNode = currNode->next;
     }
     currNode->next = newNode;
-}
 
-void printList(struct Node **head)
+    return head;
+}
+void printList(struct Node *head)
 {
-    if (*head == NULL)
+    if (head == NULL)
     {
-        printf("List is empty ...! \n");
+        printf("0\n");
         return;
     }
-    struct Node *currNode = *head;
+    struct Node *currNode = head;
     while (currNode != NULL)
     {
-        printf("%d ,%d", currNode->coeff, currNode->expo);
+        printf("%dX^%d ", currNode->coeff, currNode->expo);
+        if (currNode->next != NULL)
+        {
+            printf(" + ");
+        }
         currNode = currNode->next;
     }
-    printf("Null \n");
+    printf("\n");
 }
 int main()
 {
-    addLast(&poly1, 4, 3);
-    // addLast(&poly1,1,3);
-    // addLast(&poly1,5,3);
-    // addLast(&poly1,8,3);
-    // addLast(&poly1,3,3);
-    // addLast(&poly1,4,3);
-    // addLast(&poly1,7,3);
-    // addLast(&poly1,5,3);
-    // addLast(&poly1,6,3);
-    printList(&poly1);
+    
+    poly1 = insert(poly1, 3, 2);
+    poly1 = insert(poly1, 2, 1);
+    poly1 = insert(poly1, 5, 0);
+
+    printList(poly1);
     return 0;
 }
